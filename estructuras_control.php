@@ -82,6 +82,8 @@ function contadorV2(){
 }
 contadorV2();
 
+//count() => tamano de un arreglo
+
 echo "<h3>Uso del WHILE</h3>";
 function contadorInverso(){
     $i = 100;
@@ -92,3 +94,14 @@ function contadorInverso(){
 }
 
 contadorInverso();
+
+echo "<h3>Uso del DO-WHILE</h3>";
+function contadorInversoV2(){
+    $i = 50;
+    do{
+        echo "Numero $i--";
+        $i--;
+    }while($i > 100);
+}
+
+contadorInversoV2();

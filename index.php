@@ -87,6 +87,15 @@
             return $results;
         }
         echo dividir(100, 5);
+
+
+        //uso del map
+        $array_numeros = [1,2,3,4,5]; //=> [5,10,15,20,25]
+        $nuevo = array_map(function($numero){
+            return $numero * 5;
+        }, $array_numeros);
+
+        print_r($nuevo);
     ?>
 </body>
 <script src="./index.js"></script>
@@ -104,5 +113,13 @@
         edad: 1,
         color: "Gris"
     }
+
+    let array_numeros = [1,2,3,4,5];
+    let nuevo = array_numeros.map(numero => {
+        return numero * 5
+    });
+
+    console.log(nuevo);
+    
 </script>
 </html>
