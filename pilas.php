@@ -12,7 +12,7 @@ array_pop($pila);
 print_r($pila);
 
 echo "<br>";
-$pila_lenguajes = new SplStack();
+$pila_lenguajes = new SplStack(); //objeto de tipo SPLStack => []
 $pila_lenguajes->push("PHP");
 $pila_lenguajes->push("HTML");
 $pila_lenguajes->push("Javascript");
