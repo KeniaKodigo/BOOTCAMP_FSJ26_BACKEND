@@ -96,6 +96,11 @@
         }, $array_numeros);
 
         print_r($nuevo);
+
+
+        function test(){
+            
+        }
     ?>
 </body>
 <script src="./index.js"></script>
