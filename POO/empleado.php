@@ -72,6 +72,29 @@ class Desarrollador extends Empleado{
     public function verProyectos(){
         return "Proyectos por desarrollador";
     }
+
+    // //sobreescritura de metodos
+    // public function calcularSalario()
+    // {
+    //     $renta = 0.10;
+    //     return "A todos los desarrolladores se le descuenta la renta: $renta";
+    // }
+
+    //sobrecarga de metodos
+    public function calcularSalario($salario = null, $bono = null) //java
+    {
+        $salario_neto = $salario + $bono;
+        return "Tu salario neto recibe un bono extra $bono, salario neto: $salario_neto";
+    }
+}
+
+class Administrador extends Empleado{
+
+    //sobrecarga de
+    public function calcularSalario()
+    {
+        //salario neto
+    }
 }
 
 echo "<br>";
