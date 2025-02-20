@@ -1,12 +1,15 @@
 <?php
 
-interface DataManagement {
+interface AcademiaManagement {
     public function registerStudent();
     public function assignProfessor();
+}
+
+interface Payments{
     public function registerPayment();
 }
 
-class Course implements DataManagement {
+class Course implements AcademiaManagement {
     public function registerStudent() {
         // Código para inscribir estudiante
     }
@@ -15,7 +18,4 @@ class Course implements DataManagement {
         // Código para asignar profesor
     }
 
-    public function registerPayment() {
-        // Curso no debería encargarse de pagos
-    }
 }

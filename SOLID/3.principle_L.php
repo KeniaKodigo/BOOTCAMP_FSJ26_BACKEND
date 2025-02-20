@@ -2,7 +2,12 @@
 
 #Sustitucion de LISKOV
 
-class Teacher {
+//contratos
+interface ISchedule{
+    public function assignSchedule($schedule);
+}
+
+class Teacher implements ISchedule{
     public function assignSchedule($schedule) {
         // code..
     }
@@ -12,14 +17,22 @@ class Teacher {
     }
 }
 
-class GuestTeacher extends Teacher {
+class Director implements ISchedule{
 
-    //surgen las excepciones
-    public function assignSchedule($schedule) {
-        throw new Exception("Los profesores invitados no tienen horarios fijos.");
+    public function assignSchedule($schedule)
+    {
+        
+    }
+}
+
+class GuestTeacher{
+
+    //code..
+    public function calcular_horas(){
+
     }
 }
 
 $profesor_invitado = new GuestTeacher();
-echo $profesor_invitado->assignSchedule("Lunes a miercoles de 8am - 1pm");
-$profesor_invitado->material_clase();
+// echo $profesor_invitado->assignSchedule("Lunes a miercoles de 8am - 1pm");
+// $profesor_invitado->material_clase();

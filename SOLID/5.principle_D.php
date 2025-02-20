@@ -1,6 +1,6 @@
 <?php
 
-class Estudiante{
+class Estudiantes{
     public $nombre;
     public $carnet;
 
@@ -11,15 +11,28 @@ class Estudiante{
     }
 }
 
-class GestorInscripcion {
-    private Estudiante $estudiante;
+class GestorInscripciones {
+    private Estudiantes $estudiante;
 
-    public function __construct(Estudiante $estudiante) {
+    public function __construct(Estudiantes $estudiante) {
         $this->estudiante = $estudiante;
     }
 }
 
-$estudiante = new Estudiante("Kenia","KP2024");
+class Profesores{
+    public $nombre;
 
-$inscripcion = new GestorInscripcion($estudiante);
+
+    public function __construct($nombre)
+    {
+        $this->nombre = $nombre;
+    }
+}
+
+$estudiante = new Estudiantes("Kenia","KP2024");
+
+$profesor = new Profesores("Pablo Chacon");
+
+$inscripcion = new GestorInscripciones($estudiante);
+$inscripcion2 = new GestorInscripciones($profesor);
 print_r($inscripcion);
