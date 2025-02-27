@@ -22,4 +22,58 @@ class TaskModel{
         $this->status = 'Pendiente';
         $this->id_employee = $id_employee;
     }
+
+    //metodo para obtener todas las tareas del json
+    public static function all(){
+        //TaskModel::$file_path
+        if(file_exists(self::$file_path)){
+            //obtener los datos
+            $json = file_get_contents(self::$file_path); //php
+            //print_r($json);
+            //convertir un arreglo de php a json
+            //echo json_encode($json, JSON_PRETTY_PRINT);
+            //decodificar el json y lo convierte en un arreglo de PHP
+            return json_decode($json, true); //arreglo tipo muiltidimensinal / asociativos
+        }
+        return [];
+    }
+
+    //metodo para guardar la tareas
+    public function save(){
+        //adonde vamos a guardar la informacion
+        //actualizar el json con la nueva tarea
+        $tasks = self::all();
+        //guardar la nueva tarea
+        // array_push($tasks, [
+        //     "id_task" => 1,
+        //     "title" => "",
+        //     "description" => "",
+        //     "date" => "",
+        //     "status" => "",
+        //     "id_employee" => ""
+        // ]);
+
+        $tasks[] = [
+            "id_task" => $this->id_task,
+            "title" => $this->title,
+            "description" => $this->description,
+            "date" => $this->date,
+            "status" => $this->status,
+            "id_employee" => $this->id_employee
+        ];
+        //actualizamos el json con la nueva tarea y mantenemos tareas anteriores
+        self::loadJSON($tasks);
+        return "Se ha guardado la tarea";
+    }
+
+    //metodo que cargue y actualize el json
+    private static function loadJSON($tasks){
+        $json = json_encode($tasks, JSON_PRETTY_PRINT);
+        file_put_contents(self::$file_path, $json);
+    }
 }
+
+
+
+
+
