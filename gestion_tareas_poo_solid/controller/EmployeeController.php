@@ -1,5 +1,7 @@
 <?php
 
+require_once "../models/EmployeeModel.php";
+
 class EmployeeController{
     protected $id_employee;
     protected $name;
@@ -32,5 +34,9 @@ class EmployeeController{
 
     public function setSalary($salary){
         $this->salary = $salary;
+    }
+
+    public static function getEmployees(){
+        return EmployeeModel::all(); //[]
     }
 }

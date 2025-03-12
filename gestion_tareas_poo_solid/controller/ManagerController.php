@@ -19,7 +19,7 @@ class ManagerController extends EmployeeController implements ITask{
         try{
             $task->save();
             //redireccionar vistas
-            //header('Location: views/');
+            header('Location: ./tasks.php');
             exit();
         }catch(Error $error){
             return "Error al guardar la tarea: " . $error;
@@ -28,7 +28,16 @@ class ManagerController extends EmployeeController implements ITask{
 
     public static function edit($id_task, $title, $description)
     {
-        //code..
+        try{
+            TaskModel::update($id_task, $title, $description);
+            //header('Location: ./tasks.php');
+            //script
+            echo '<script>
+                window.location.href = "./tasks.php";
+            </script>';
+        }catch(Error $error){
+            return "Error al editar la tarea: " . $error;
+        }
     }
 }
 

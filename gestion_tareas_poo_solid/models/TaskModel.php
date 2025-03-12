@@ -71,8 +71,34 @@ class TaskModel{
         $json = json_encode($tasks, JSON_PRETTY_PRINT);
         file_put_contents(self::$file_path, $json);
     }
-}
 
+    //id, title, description
+    public static function update($id_task, $title, $description){
+        $tasks = self::all(); //[]
+        $found = false; //true
+
+        //iteramos las tareas para validar si la tarea existe o no existe
+        //... spread operator
+        foreach($tasks as &$task){
+            if($task['id_task'] == $id_task){
+                $task['title'] = $title;
+                $task['description'] = $description;
+                $found = true;
+                //hacemos un break para que ya no se iteren las demas tareas
+                break;
+            }
+        }
+
+        //validando cuando la tarea existe
+        if($found){
+            self::loadJSON($tasks);
+            return "Se ha actualizado la tarea";
+        }else{
+            return "No se ha encontrado la tarea";
+        }
+
+    }
+}
 
 
 

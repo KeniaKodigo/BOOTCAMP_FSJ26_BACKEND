@@ -1,11 +1,34 @@
 [
     {
         "id_task": 1,
-        "title": "Practicar POO",
+        "title": "Inducci\u00f3n a patrones",
         "description": "aprender poo y solid",
         "date": "2025-02-26",
         "status": "Pendiente",
         "id_employee": 2
+    },
+    {
+        "id_task": 2,
+        "title": "Fundamentos de POO & SOLID",
+        "description": "aplicar los fundamentos de poo y principios solid en el proyecto eccomerce",
+        "date": "2025-02-26",
+        "status": "Pendiente",
+        "id_employee": 2
+    },
+    {
+        "id_task": "10",
+        "title": "Aplicar IA en los proyectos eccommerce",
+        "description": "utilizar github copilot....",
+        "date": "2025-03-11",
+        "status": "Pendiente",
+        "id_employee": "3"
+    },
+    {
+        "id_task": "11",
+        "title": "desarrollo componente Login",
+        "description": "crear el inicio de sesion y registro",
+        "date": "2025-03-11",
+        "status": "Pendiente",
+        "id_employee": "4"
     }
 ]
-
