@@ -4,7 +4,7 @@ class OldApis {
     public function fetchUserData(): array {
         $data = file_get_contents('data_old.json');
         $array_data = json_decode($data, true);
-        return $array_data;
+        return $array_data; //[]
     }
 }
 

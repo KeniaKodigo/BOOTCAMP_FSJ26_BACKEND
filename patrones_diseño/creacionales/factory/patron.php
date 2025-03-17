@@ -40,6 +40,8 @@ class NotificationFactory{
             default => throw new Exception("Tipo de notificacion no soportado")
         };
     }
+
+    //metodo
 }
 
 // NotificationFactory::data(new EmailNotification); //EMAIL
