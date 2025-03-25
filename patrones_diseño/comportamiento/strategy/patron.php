@@ -19,6 +19,18 @@ class TarjetaCredito implements StrategyPagos{
     }
 }
 
+class Criptomoneda implements StrategyPagos{
+
+    public function procesarPago($monto){
+        return "Pago por Criptomoneda, monto a pagar: $$monto";
+    }
+}
+
+
+/**
+ * clases de alto nivel no deben depender de las clases de bajo nivel ambas deben
+ * de depender de abstracciones
+ */
 
 #clase donde se van a recibir las estrategias
 class Procesar{
@@ -29,7 +41,7 @@ class Procesar{
     //set (capturar) y get (retornar) (encapsulamiento)
     #metodo donde recibimos la estrategia
     public function setPagos(StrategyPagos $pago){
-        $this->estrategia = $pago;
+        $this->estrategia = $pago; //escogemos la estrategia
     }
 
     #metodo donde retornamos el comportamiento de la estrategia que elegimos
@@ -47,3 +59,4 @@ echo "<br>";
 $pago2 = new Procesar();
 $pago2->setPagos(new TarjetaCredito);
 echo $pago2->procesar_pago(230);
+

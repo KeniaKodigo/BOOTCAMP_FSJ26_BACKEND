@@ -73,6 +73,8 @@ class ChocolateDecorator extends CoffeeDecorator {
     }
 }
 
+//decorador extra
+
 
 //haciendo el cafe
 $cafesito1 = new SimpleCoffee();
