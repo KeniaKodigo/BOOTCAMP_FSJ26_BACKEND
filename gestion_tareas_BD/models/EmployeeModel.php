@@ -1,7 +1,5 @@
 <?php
 
-require_once "../config/database.php";
-
 class EmployeeModel{
 
     //metodos reacionados a la data del empleado
@@ -11,5 +9,17 @@ class EmployeeModel{
         $query->execute(); //ejecuta la consulta
         $result = $query->fetchAll(PDO::FETCH_ASSOC); //[] arreglo asociativo
         return $result;
+    }
+
+    //metodo para verificar correo y contrasena del empleado 
+    public static function findByEmailAndPassword($email, $password){
+        $pdo = Connection::getInstance()->getConnection();
+        $query = $pdo->prepare("SELECT * FROM employees WHERE email = :email AND password = :pass"); //1 persona
+        $query->bindParam(":email", $email);
+        $query->bindParam(":pass", $password);
+        $query->execute();
+
+        $employee = $query->fetch(PDO::FETCH_ASSOC); //solo traeme un registro asociar a un arreglo
+        return $employee;
     }
 }

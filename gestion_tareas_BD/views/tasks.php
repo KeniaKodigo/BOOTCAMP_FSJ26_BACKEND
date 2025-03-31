@@ -31,7 +31,7 @@
                         <td><?php echo $item['id_task']; ?></td>
                         <td><?php echo $item['title']; ?></td>
                         <td><?php echo $item['status']; ?></td>
-                        <td><?php echo $item['id_employee']; ?></td>
+                        <td><?php echo $item['employee']; ?></td>
                         <td>
                             <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#ModalEditar<?php echo $item['id_task']; ?>">Editar</button>
                         </td>

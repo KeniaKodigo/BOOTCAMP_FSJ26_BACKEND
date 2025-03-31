@@ -25,7 +25,7 @@ class TaskModel{
     public static function all(){
         # select * from tasks
         $pdo = Connection::getInstance()->getConnection();
-        $query = $pdo->query("SELECT * FROM tasks"); //obtiene la consulta
+        $query = $pdo->query("SELECT t.title, t.description, t.id_task, t.status, t.id_employee, e.name as employee FROM tasks t JOIN employees e ON t.id_employee = e.id_employee"); //obtiene la consulta
         $query->execute(); //ejecuta la consulta
         $result = $query->fetchAll(PDO::FETCH_ASSOC); //[] arreglo asociativo
         return $result;
@@ -50,8 +50,8 @@ class TaskModel{
         $result = $query->execute(["$title","$description",$id_task]);
         return $result; //un booleano
     }
-}
 
+}
 
 
 
