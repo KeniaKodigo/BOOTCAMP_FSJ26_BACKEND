@@ -1,6 +1,7 @@
 <?php
 
 require_once "../models/EmployeeModel.php";
+require_once "../config/database.php";
 
 class EmployeeController{
     protected $id_employee;
@@ -38,5 +39,9 @@ class EmployeeController{
 
     public static function getEmployees(){
         return EmployeeModel::all(); //[]
+    }
+
+    public static function getTasksByEmployee(){
+        return EmployeeModel::findTasksByEmployee();
     }
 }

@@ -22,4 +22,13 @@ class EmployeeModel{
         $employee = $query->fetch(PDO::FETCH_ASSOC); //solo traeme un registro asociar a un arreglo
         return $employee;
     }
+
+    //metodo para obtener tareas por empleado
+    public static function findTasksByEmployee(){
+        $pdo = Connection::getInstance()->getConnection();
+        $query = $pdo->prepare("SELECT * FROM tasks WHERE id_employee = ?");
+        $query->execute([$_SESSION['code']]); //mandar el id_empleado que entre
+        $result = $query->fetchAll(PDO::FETCH_ASSOC); //[] arreglo tareas
+        return $result;
+    }
 }

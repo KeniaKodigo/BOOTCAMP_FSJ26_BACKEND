@@ -1,5 +1,9 @@
 <?php
+    require_once "./controller/LoginController.php";
     session_start();
+    if(!isset($_SESSION['code'])){
+        echo "<h1>Debes iniciar sesion!</h1>";
+    }else{
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,5 +22,14 @@
         <a href="./views/tasks.php" class="btn btn-success">Informacion de empleados</a>
     </div>
     
+    <form action="" method="POST">
+        <button class="btn btn-danger" name="logout" type="submit">Cerrar Sesion</button>
+    </form>
+    <?php 
+        if(isset($_POST['logout'])){
+            LoginController::logout();
+        }
+    ?>
 </body>
 </html>
+<?php } ?>

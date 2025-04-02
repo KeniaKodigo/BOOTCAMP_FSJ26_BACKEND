@@ -1,4 +1,5 @@
 <?php
+    require_once "../controller/EmployeeController.php";
     session_start();
 ?>
 <!DOCTYPE html>
@@ -14,6 +15,35 @@
     <p class="fw-bold">Codigo del empleado: <?php echo $_SESSION['code']; ?></p>
     <h4 class="text-center text-secondary">Listado de Tareas Pendientes</h4>
 
-    
+    <?php 
+        $tasks = EmployeeController::getTasksByEmployee();
+        //print_r($tasks); []
+    ?>
+
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Descripcion</th>
+            <th>Estado</th>
+        </thead>
+        <tbody>
+            <?php 
+                if(count($tasks) > 0){
+                    foreach($tasks as $item){ ?>
+                        <tr>
+                            <td><?php echo $item['id_task']; ?></td>
+                            <td><?php echo $item['title']; ?></td>
+                            <td><?php echo $item['description']; ?></td>
+                            <td><?php echo $item['status']; ?></td>
+                        </tr>
+                    <?php } ?>
+            <?php }else{ ?>
+                <tr>
+                    <td colspan="4" class="text-center">No hay tareas</td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
 </body>
 </html>

@@ -29,4 +29,16 @@ class LoginController{
                 </div>";
         }
     }
+
+    public static function logout(){
+        //destruyendo la sesion
+        session_start();
+        //destruir su informacion
+        session_destroy();
+        //destruir las variables de la sesion
+        session_unset();
+
+        header('Location: index.php');
+    }
+    
 }

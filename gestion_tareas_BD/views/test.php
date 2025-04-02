@@ -8,3 +8,5 @@
 session_start(); //iniciando y utilizando las sesiones
 
 echo $_SESSION['employee']; //kenia paiz
+
+$_SESSION['code']; //id_empleado
